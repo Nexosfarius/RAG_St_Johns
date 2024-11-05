@@ -8,8 +8,8 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-openai_api_key = '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'  # Replace with your actual OpenAI API key
-pinecone_api_key = '318c9b72-c859-4a43-9ab7-6448a51ac21a'  
+openai_api_key = 'your key'  # Replace with your actual OpenAI API key
+pinecone_api_key = 'your key'  # same here
 
 index_name = "capstone1"
 embeddings = OpenAIEmbeddings(api_key=openai_api_key) 
