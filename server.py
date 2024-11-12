@@ -4,14 +4,19 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from langchain.chains import ConversationalRetrievalChain
 import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 CORS(app)
 
-openai_api_key = 'your key'  # Replace with your actual OpenAI API key
-pinecone_api_key = 'your key'  # same here
+# Load environment variables from the .env file
+load_dotenv()
 
-index_name = "capstone1"
+# Access the keys
+openai_api_key = os.getenv("OPENAI_API_KEY")
+pinecone_api_key = os.getenv("PINECONE_API_KEY")
+
+index_name = "capstone"
 embeddings = OpenAIEmbeddings(api_key=openai_api_key) 
 vectorstore = PineconeVectorStore(index_name=index_name, embedding=embeddings, pinecone_api_key=pinecone_api_key)
 
